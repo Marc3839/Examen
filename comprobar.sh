@@ -3,7 +3,6 @@ pid=$2
 
 c=1
 maximo=$(cat proceso.txt | wc -l )
-pro=true
 while [ $c -le $maximo ];do
     
     
@@ -13,11 +12,9 @@ while [ $c -le $maximo ];do
 
     if [ $us= $lineaU ]; then
 	if [ $pid= $lineaP ];then
-	    echo "$us es correspondiente con PID $pid en la linea $linea1"
+	    echo "$us es correspondiente con PID $pid"
 	else
-	    echo "No existe el PID"
+	    echo "$us no es correspondiente con PID $pid"
 	fi
-    else
-	echo "No exisre el usuario"
     fi
 done
