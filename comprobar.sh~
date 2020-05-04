@@ -1,0 +1,27 @@
+usuario=$1
+pid=$2
+
+contador=1
+maximo=$(cat proceso.txt | wc -l )
+
+
+for i in $(seq 
+
+while [ $contador -le $maximo ];do
+    linea=$(cat proceso.txt | head -$contador | tail -1)
+    for i in $(seq 
+    sistema=$(echo $linea | awk '{print $1}')
+    valor=$(echo $linea | awk '{print $2}')
+
+    if [ $sistema = "Linux" ]; then
+	contlinux=$((contlinux+1))
+	procesolinux=$((procesolinux+valor))
+    elif [ $sistema = "Windows" ]; then
+	contwindows=$((contwindows+1))
+	procesowindows=$((procesowindows+valor))
+    fi
+    contador=$((contador+1))
+done
+
+echo "Linux - $contlinux $procesolinux"
+echo "Windows - $contwindows $procesowindows"
